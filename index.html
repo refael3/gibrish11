@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרת טקסט שגוי</title>
+    <title>המרת טקסט</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -33,6 +33,9 @@
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .navbar a {
@@ -64,12 +67,6 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            background-color: #ffeb3b;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .card a {
@@ -77,16 +74,6 @@
             color: #333;
             font-weight: bold;
             font-size: 1.2rem;
-        }
-
-        .card:hover a {
-            color: #d32f2f;
-        }
-
-        .card p {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 10px;
         }
 
         footer {
@@ -102,32 +89,28 @@
 </head>
 <body>
     <header>
-        המרת טקסט שגוי
+        אתר להמרת טקסט
     </header>
 
-    <!-- שורת ניווט מהיר -->
     <div class="navbar">
-        <a href="index.html">🏠 בית</a>
-        <a href="about.html">ℹ️ אודות</a>
+        <a href="#">🏠 בית</a>
+        <a href="#">ℹ️ אודות</a>
     </div>
 
     <div class="container">
         <div class="card">
-            <a href="hebrew-to-english.html">המרת עברית לאנגלית</a>
-            <p>המר טקסט שגוי מעברית לאנגלית.</p>
+            <a href="convert-eng-to-he.html">המרה מאנגלית לעברית</a>
         </div>
         <div class="card">
-            <a href="english-to-hebrew.html">המרת אנגלית לעברית</a>
-            <p>המר טקסט שגוי מאנגלית לעברית.</p>
+            <a href="convert-he-to-eng.html">המרה מעברית לאנגלית</a>
         </div>
         <div class="card">
-            <a href="reverse-text.html">הפיכת טקסט</a>
-            <p>הפוך טקסט מימין לשמאל.</p>
+            <a href="reverse-text.html">היפוך טקסט</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2024 המרת טקסט שגוי
+        &copy; 2024 אתר להמרת טקסט
     </footer>
 </body>
 </html>
