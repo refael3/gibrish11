@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרת טקסט</title>
+    <title>המרת טקסט שגוי</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -49,8 +49,8 @@
 
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             margin-top: 30px;
         }
 
@@ -60,10 +60,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin: 20px;
             padding: 20px;
-            width: 300px;
+            width: 250px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            background-color: #ffeb3b;
         }
 
         .card:hover {
@@ -71,33 +72,21 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        label {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
+        .card a {
+            text-decoration: none;
             color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        input[type="text"], select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px solid #ccc;
+        .card:hover a {
+            color: #d32f2f;
         }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        .card p {
             font-size: 1rem;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
+            color: #666;
+            margin-top: 10px;
         }
 
         footer {
@@ -110,59 +99,35 @@
             width: 100%;
         }
     </style>
-    <script>
-        function swapLang(inputId, outputId) {
-            const input = document.getElementById(inputId).value;
-            const langSwap = {
-                'q': '/', 'w': '\'', 'e': 'ק', 'r': 'ר', 't': 'א', 'y': 'ט', 'u': 'ו', 'i': 'ן', 'o': 'ם', 'p': 'פ',
-                'a': 'ש', 's': 'ד', 'd': 'ג', 'f': 'כ', 'g': 'ע', 'h': 'י', 'j': 'ח', 'k': 'ל', 'l': 'ך',
-                'z': 'ז', 'x': 'ס', 'c': 'ב', 'v': 'ה', 'b': 'נ', 'n': 'מ', 'm': 'צ', ',': 'ת', '.': 'ץ',
-                '/': '.', '\'': ',', // Reverse mapping
-                // Add more mappings as needed
-            };
-            const swapped = input.split('').map(char => langSwap[char] || char).join('');
-            document.getElementById(outputId).value = swapped;
-        }
-
-        function toggleDirection(inputId, outputId) {
-            const input = document.getElementById(inputId).value;
-            const isRTL = document.getElementById(inputId).style.direction === 'rtl';
-            document.getElementById(outputId).value = input;
-            document.getElementById(outputId).style.direction = isRTL ? 'ltr' : 'rtl';
-        }
-    </script>
 </head>
 <body>
     <header>
-        אתר להמרת טקסט שגוי
+        המרת טקסט שגוי
     </header>
 
     <!-- שורת ניווט מהיר -->
     <div class="navbar">
-        <a href="#">🏠 בית</a>
-        <a href="#">ℹ️ אודות</a>
+        <a href="index.html">🏠 בית</a>
+        <a href="about.html">ℹ️ אודות</a>
     </div>
-    
+
     <div class="container">
         <div class="card">
-            <label for="textInput">הזן טקסט שגוי באנגלית:</label>
-            <input type="text" id="textInput" placeholder="לדוגמה: aueuks">
-            <button onclick="swapLang('textInput', 'textOutput')">המר</button>
-            <label for="textOutput">הטקסט המומר:</label>
-            <input type="text" id="textOutput" readonly>
+            <a href="hebrew-to-english.html">המרת עברית לאנגלית</a>
+            <p>המר טקסט שגוי מעברית לאנגלית.</p>
         </div>
-
         <div class="card">
-            <label for="rtlInput">הזן טקסט RTL:</label>
-            <input type="text" id="rtlInput" style="direction: rtl;" placeholder="לדוגמה: שלום, מה קורה?">
-            <button onclick="toggleDirection('rtlInput', 'ltrOutput')">הפוך כיוון</button>
-            <label for="ltrOutput">הטקסט בכיוון החדש:</label>
-            <input type="text" id="ltrOutput" readonly>
+            <a href="english-to-hebrew.html">המרת אנגלית לעברית</a>
+            <p>המר טקסט שגוי מאנגלית לעברית.</p>
+        </div>
+        <div class="card">
+            <a href="reverse-text.html">הפיכת טקסט</a>
+            <p>הפוך טקסט מימין לשמאל.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2024 אתר להמרת טקסט שגוי
+        &copy; 2024 המרת טקסט שגוי
     </footer>
 </body>
 </html>
