@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המרה מעברית לאנגלית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Assistant', sans-serif;
+            background-color: #f0f0f0;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            background-color: #f5f5f5;
+            border-radius: 25px;
+            margin: 20px auto;
+            padding: 10px;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .navbar a:hover {
+            color: #4CAF50;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+        }
+
+        .converter {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        המרה מעברית לאנגלית
+    </header>
+
+    <!-- שורת ניווט מהיר -->
+    <div class="navbar">
+        <a href="index.html">🏠 בית</a>
+        <a href="about.html">ℹ️ אודות</a>
+    </div>
+
+    <div class="container">
+        <div class="converter">
+            <input type="text" id="inputText" placeholder="הכנס טקסט בעברית...">
+            <button onclick="convertToEnglish()">המר</button>
+            <div class="result" id="resultText"></div>
+        </div>
+    </div>
+
+    <script>
+        function convertToEnglish() {
+            const input = document.getElementById("inputText").value;
+            const englishMap = {
+                'ש': 'a', 'נ': 'b', 'ב': 'c', 'ג': 'd', 'ק': 'e', 'כ': 'f', 'ע': 'g',
+                'י': 'h', 'ן': 'i', 'ח': 'j', 'ל': 'k', 'ך': 'l', 'צ': 'm', 'מ': 'n',
+                'ם': 'o', 'פ': 'p', '/': 'q', 'ר': 'r', 'ד': 's', 'א': 't', 'ו': 'u',
+                'ה': 'v', "'": 'w', 'ס': 'x', 'ט': 'y', 'ז': 'z'
+            };
+            let result = '';
+            for (let i = 0; i < input.length; i++) {
+                result += englishMap[input[i]] || input[i];
+            }
+            document.getElementById("resultText").textContent = result;
+        }
+    </script>
+</body>
+</html>
