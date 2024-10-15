@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרת טקסט מעברית לאנגלית</title>
+    <title>המרה מעברית לאנגלית</title>
     <style>
         body {
             font-family: 'Assistant', sans-serif;
@@ -32,7 +32,7 @@
 
         textarea {
             width: 60%;
-            height: 100px;
+            height: 150px;
             border: 2px solid black;
             padding: 10px;
             font-size: 1.2rem;
@@ -56,7 +56,7 @@
 
         .output-box {
             width: 60%;
-            min-height: 100px;
+            min-height: 150px;
             border: 2px solid black;
             margin-top: 20px;
             padding: 10px;
@@ -128,15 +128,23 @@
 
 <script>
     const hebToEngMap = {
-                'ש': 'a', 'נ': 'b', 'ב': 'c', 'ג': 'd', 'ק': 'e', 'כ': 'f', 'ע': 'g',
-                'י': 'h', 'ן': 'i', 'ח': 'j', 'ל': 'k', 'ך': 'l', 'צ': 'm', 'מ': 'n',
-                'ם': 'o', 'פ': 'p', '/': 'q', 'ר': 'r', 'ד': 's', 'א': 't', 'ו': 'u',
-                'ה': 'v', "'": 'w', 'ס': 'x', 'ט': 'y', 'ז': 'z'
-            };
+        'ש': 'a', 'נ': 'b', 'ב': 'c', 'ג': 'd', 'ק': 'e', 'כ': 'f', 'ע': 'g', 'י': 'h', 'ן': 'i',
+        'ח': 'j', 'ל': 'k', 'ך': 'l', 'צ': 'm', 'מ': 'n', 'ם': 'o', 'פ': 'p', '/': 'q', 'ר': 'r',
+        'ד': 's', 'א': 't', 'ו': 'u', 'ה': 'v', '\'': 'w', 'ס': 'x', 'ט': 'y', 'ז': 'z',
+        'ת': ',', 'ף': '.', 'ץ': '/'
+    };
+
     function convertText() {
         const input = document.getElementById('inputText').value;
-        let output = input.split('').map(letter => hebToEngMap[letter] || letter).join('');
-        document.getElementById('outputText').textContent = output;
+        let convertedText = '';
+        for (let char of input) {
+            if (hebToEngMap[char]) {
+                convertedText += hebToEngMap[char];
+            } else {
+                convertedText += char;
+            }
+        }
+        document.getElementById('outputText').textContent = convertedText;
     }
 
     function copyText() {
