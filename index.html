@@ -11,6 +11,7 @@
             font-family: 'Assistant', sans-serif;
             background-color: #f0f0f0;
             direction: rtl;
+            overflow-x: hidden; /* תיקון לפס גלילה לרוחב */
         }
 
         header {
@@ -99,7 +100,8 @@
             padding: 20px;
             background-color: #4CAF50;
             color: white;
-            position: absolute;
+            border-radius: 15px 15px 0 0; /* קצוות עגולים לפס כל הזכויות */
+            position: fixed;
             bottom: 0;
             width: 100%;
         }
@@ -114,13 +116,13 @@
     </div>
     
     <div class="container">
-        <div class="card" onclick="location.href='text-corrector.html'">
+        <div class="card" onclick="location.href='he-to-en.html'">
             <img src="text-icon.png" alt="טקסט" class="icon">
-            <a href="text-corrector.html">המרת טקסט שגוי</a>
+            <a href="he-to-en.html">מעברית לאנגלית</a>
         </div>
-        <div class="card" onclick="location.href='rtl-ltr.html'">
+        <div class="card" onclick="location.href='en-to-he.html'">
             <img src="direction-icon.png" alt="כיוון טקסט" class="icon">
-            <a href="rtl-ltr.html">המרת RTL ל-LTR</a>
+            <a href="en-to-he.html">מאנגלית לעברית</a>
         </div>
     </div>
 
