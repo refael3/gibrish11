@@ -11,7 +11,7 @@
             font-family: 'Assistant', sans-serif;
             background-color: #f0f0f0;
             direction: rtl;
-            overflow-x: hidden; /* תיקון לפס גלילה לרוחב */
+            overflow-x: hidden;
         }
 
         header {
@@ -36,7 +36,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
         }
 
         .navbar a {
@@ -64,12 +63,10 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin: 20px;
             padding: 20px;
-            width: 200px;
-            height: 200px;
+            width: 250px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            position: relative;
         }
 
         .card:hover {
@@ -83,49 +80,44 @@
             font-weight: bold;
             font-size: 1.2rem;
             display: block;
-            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 15px 15px 0 0; /* קצוות עגולים לפס כל הזכויות */
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .card .icon {
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
-    <header>המרת טקסט שגוי</header>
+    <header>
+        ברוכים הבאים לאתר להמרת טקסט שגוי
+    </header>
 
+    <!-- שורת ניווט מהיר -->
     <div class="navbar">
         <a href="index.html">🏠 בית</a>
         <a href="about.html">ℹ️ אודות</a>
     </div>
     
     <div class="container">
-        <div class="card" onclick="location.href='he-to-en.html'">
-            <img src="text-icon.png" alt="טקסט" class="icon">
-            <a href="he-to-en.html">מעברית לאנגלית</a>
+        <div class="card" onclick="location.href='eng-to-heb.html'">
+            <a href="eng-to-heb.html">המרה מאנגלית לעברית</a>
+            <p>המרת טקסט שגוי מאנגלית לעברית</p>
         </div>
-        <div class="card" onclick="location.href='en-to-he.html'">
-            <img src="direction-icon.png" alt="כיוון טקסט" class="icon">
-            <a href="en-to-he.html">מאנגלית לעברית</a>
+        <div class="card" onclick="location.href='heb-to-eng.html'">
+            <a href="heb-to-eng.html">המרה מעברית לאנגלית</a>
+            <p>המרת טקסט שגוי מעברית לאנגלית</p>
+        </div>
+        <div class="card" onclick="location.href='rtl-to-ltr.html'">
+            <a href="rtl-to-ltr.html">המרת RTL ל-LTR</a>
+            <p>המרת כיווניות טקסט מימין לשמאל לשמאל לימין</p>
         </div>
     </div>
-
-    <footer>&copy; 2024 כל הזכויות שמורות</footer>
 </body>
 </html>
