@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרת טקסט</title>
+    <title>המרת טקסט שגוי</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -63,10 +63,17 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin: 20px;
             padding: 20px;
-            width: 250px;
+            width: 200px;
+            height: 200px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .card a {
@@ -74,6 +81,17 @@
             color: #333;
             font-weight: bold;
             font-size: 1.2rem;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         footer {
@@ -81,36 +99,31 @@
             padding: 20px;
             background-color: #4CAF50;
             color: white;
-            position: relative;
+            position: absolute;
             bottom: 0;
             width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        אתר להמרת טקסט
-    </header>
+    <header>המרת טקסט שגוי</header>
 
     <div class="navbar">
-        <a href="#">🏠 בית</a>
-        <a href="#">ℹ️ אודות</a>
+        <a href="index.html">🏠 בית</a>
+        <a href="about.html">ℹ️ אודות</a>
     </div>
-
+    
     <div class="container">
-        <div class="card">
-            <a href="convert-eng-to-he.html">המרה מאנגלית לעברית</a>
+        <div class="card" onclick="location.href='text-corrector.html'">
+            <img src="text-icon.png" alt="טקסט" class="icon">
+            <a href="text-corrector.html">המרת טקסט שגוי</a>
         </div>
-        <div class="card">
-            <a href="convert-he-to-eng.html">המרה מעברית לאנגלית</a>
-        </div>
-        <div class="card">
-            <a href="reverse-text.html">היפוך טקסט</a>
+        <div class="card" onclick="location.href='rtl-ltr.html'">
+            <img src="direction-icon.png" alt="כיוון טקסט" class="icon">
+            <a href="rtl-ltr.html">המרת RTL ל-LTR</a>
         </div>
     </div>
 
-    <footer>
-        &copy; 2024 אתר להמרת טקסט
-    </footer>
+    <footer>&copy; 2024 כל הזכויות שמורות</footer>
 </body>
 </html>
