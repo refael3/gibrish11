@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרת RTL ל-LTR</title>
+    <title>המרת טקסט מ-RTL ל-LTR</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,7 +11,7 @@
             font-family: 'Assistant', sans-serif;
             background-color: #f0f0f0;
             direction: rtl;
-            overflow-x: hidden;
+            text-align: center;
         }
 
         header {
@@ -25,102 +25,91 @@
             z-index: 100;
         }
 
-        .navbar {
-            background-color: #f5f5f5;
-            border-radius: 25px;
-            margin: 20px auto;
-            padding: 10px;
-            width: 80%;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: #333;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .navbar a:hover {
-            color: #4CAF50;
-        }
-
         .container {
+            margin-top: 30px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: calc(100vh - 100px);
         }
 
-        .converter {
-            text-align: center;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 400px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
+        textarea {
+            width: 80%;
+            height: 200px;
             border: 2px solid black;
-            border-radius: 5px;
+            padding: 10px;
             font-size: 1.2rem;
         }
 
         button {
+            margin-top: 10px;
             padding: 10px 20px;
+            font-size: 1.2rem;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 10px;
-            font-size: 1.2rem;
             cursor: pointer;
-            width: 100%;
+            width: 150px;
         }
 
         button:hover {
             background-color: #45a049;
         }
 
-        .result {
+        .output-box {
+            width: 80%;
+            min-height: 200px;
+            border: 2px solid black;
             margin-top: 20px;
-            font-size: 1.5rem;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: white;
+            text-align: left;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #f0ad4e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: #ec971f;
         }
     </style>
 </head>
 <body>
-    <header>
-        המרת RTL ל-LTR
-    </header>
 
-    <!-- שורת ניווט מהיר -->
-    <div class="navbar">
-        <a href="index.html">🏠 בית</a>
-        <a href="about.html">ℹ️ אודות</a>
-    </div>
+<header>המרת כיווניות טקסט מימין לשמאל לשמאל לימין</header>
 
-    <div class="container">
-        <div class="converter">
-            <input type="text" id="inputText" placeholder="הכנס טקסט...">
-            <button onclick="reverseText()">המר</button>
-            <div class="result" id="resultText"></div>
-        </div>
-    </div>
+<div class="container">
+    <textarea id="inputText" placeholder="הכנס כאן את הטקסט ב-RTL..."></textarea>
+    <button onclick="convertText()">המר</button>
 
-    <script>
-        function reverseText() {
-            const input = document.getElementById("inputText").value;
-            const reversed = input.split('').reverse().join('');
-            document.getElementById("resultText").textContent = reversed;
-        }
-    </script>
+    <div class="output-box" id="outputText"></div>
+    <button class="copy-btn" onclick="copyText()">העתק ללוח</button>
+</div>
+
+<script>
+    function convertText() {
+        const input = document.getElementById('inputText').value;
+        const output = input.split('').reverse().join('');
+        document.getElementById('outputText').textContent = output;
+    }
+
+    function copyText() {
+        const output = document.getElementById('outputText').textContent;
+        navigator.clipboard.writeText(output);
+        alert("הטקסט הועתק ללוח");
+    }
+</script>
+
 </body>
 </html>
