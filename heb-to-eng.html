@@ -128,10 +128,11 @@
 
 <script>
     const hebToEngMap = {
-        'ש': 'a', 'נ': 'b', 'ב': 'c', 'ג': 'd', 'ק': 'e',
-        // הוספה של כל האותיות לפי המיפוי
-    };
-
+                'ש': 'a', 'נ': 'b', 'ב': 'c', 'ג': 'd', 'ק': 'e', 'כ': 'f', 'ע': 'g',
+                'י': 'h', 'ן': 'i', 'ח': 'j', 'ל': 'k', 'ך': 'l', 'צ': 'm', 'מ': 'n',
+                'ם': 'o', 'פ': 'p', '/': 'q', 'ר': 'r', 'ד': 's', 'א': 't', 'ו': 'u',
+                'ה': 'v', "'": 'w', 'ס': 'x', 'ט': 'y', 'ז': 'z'
+            };
     function convertText() {
         const input = document.getElementById('inputText').value;
         let output = input.split('').map(letter => hebToEngMap[letter] || letter).join('');
